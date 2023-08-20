@@ -131,8 +131,8 @@ export default function Footer() {
                 <a className="link-body-emphasis" href="/">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
+                    width="30"
+                    height="30"
                     fill="currentColor"
                     className="bi bi-facebook"
                     viewBox="0 0 16 16"
@@ -146,8 +146,8 @@ export default function Footer() {
                 <a className="link-body-emphasis" href="/">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
+                    width="30"
+                    height="30"
                     fill="currentColor"
                     className="bi bi-instagram"
                     viewBox="0 0 16 16"
@@ -159,8 +159,8 @@ export default function Footer() {
               <li className="ms-3">
                 <a className="link-body-emphasis" href="/">
                   <svg
-                    height="24px"
-                    width="24px"
+                    height="30"
+                    width="30"
                     version="1.1"
                     id="svg5"
                     xmlns="http://www.w3.org/2000/svg"
@@ -178,6 +178,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+         
         </footer>
       </div>
     </div>

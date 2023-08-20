@@ -1,99 +1,59 @@
-import React, { Component } from "react";
+import React from "react";
 import "../App.css";
+// import Spinner from "./Spinner";
 
-export class NewsItem extends Component {
-  render() {
-    let {
-      title,
-      description,
-      imageUrl,
-      url,
-      loading,
-      publishedAt,
-      author,
-      source,
-    } = this.props;
+const NewsItem = (props) => {
+  let { title, description, imageUrl, url, publishedAt, author, source } =
+    props;
 
-    return (
-      <div>
-        <div className="card my-3 ">
+  return (
+    <div className="container">
+      <div className="card my-3 ">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            position: "absolute",
+            right: "0",
+          }}
+        >
           <span
-            class="position-absolute top-0  translate-middle badge rounded-pill bg-danger"
+            className=" badge  bg-danger"
             style={{ left: "90%", zIndex: "1" }}
           >
             {source == null ? "unknown" : source}
-            <span class="visually-hidden">unread messages</span>
+            <span className="visually-hidden">unread messages</span>
           </span>
-          <img
-            src={
-              loading
-                ? "https://image-placeholder.com/images/actual-size/320x200.png"
-                : imageUrl
-            }
-            className="card-img-top"
-            alt="news"
-          />
-          <div className="card-body ">
-            <h5
-              className={`cust-link card-title ${
-                loading ? "placeholder-glow" : ""
-              }`}
-            >
-              {loading ? (
-                <span
-                  className={`${loading ? "placeholder col-6" : ""}`}
-                ></span>
-              ) : (
-                <a
-                  style={{ textDecoration: "none", color: "black" }}
-                  href={url}
-                >
-                  <span>{title}...</span>
-                </a>
-              )}
-            </h5>
-            <p className={`card-text ${loading ? "placeholder-glow" : ""}`}>
-              {" "}
-              {loading ? (
-                <>
-                  <span className="placeholder col-7"></span>
-                  <span className="placeholder col-4"></span>
-                  <span className="placeholder col-4"></span>
-                  <span className="placeholder col-6"></span>
-                  <span className="placeholder col-8"></span>
-                </>
-              ) : (
-                <span>{description}...</span>
-              )}{" "}
-            </p>
-
-            <p
-              className={`card-text text-start ${
-                loading ? "placeholder-glow" : ""
-              }`}
-            >
-              {loading ? (
-                <span className="placeholder col-7"></span>
-              ) : (
-                <small id="publishedAt" className="text-body-secondary">
-                  By {author} on {publishedAt}
-                </small>
-              )}
-            </p>
-
-            <a
-              href={url}
-              className={`btn btn-sm btn-dark  ${
-                loading ? "disabled placeholder col-3" : ""
-              }`}
-            >
-              {loading ? "" : "Read More"}
+        </div>
+        <img
+          src={imageUrl}
+          className="card-img-top"
+          alt="news"
+          style={{ height: "250px", width: "100%", objectFit: "cover" }}
+        />
+        <div className="card-body ">
+          <h5 className={`cust-link card-title`}>
+            <a style={{ textDecoration: "none", color: "black" }} href={url}>
+              <span>{title}...</span>
             </a>
-          </div>
+          </h5>
+          <p className={`card-text `}>
+            <span>{description}...</span>
+          </p>
+
+          <p className={`card-text text-start`}>
+            <small id="publishedAt" className="text-body-secondary">
+              By {author} on {publishedAt}
+            </small>
+          </p>
+
+          <a href={url} className={`btn btn-sm btn-dark `}>
+            Read More
+          </a>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default NewsItem;

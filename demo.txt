@@ -7,3 +7,6 @@
 <Route path="/technology" element={<News pageSize={9} category="technology" />} />
 
 <Route path="/" element={<News pageSize={9} category="business" />} />
+
+
+WEATHER API ENDPOINT: http://api.weatherapi.com/v1/current.json?key=bb901075cd474eec82060824231908&q=mumbai&aqi=yes

@@ -1,59 +1,113 @@
 import "./App.css";
 
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import News from "./components/News";
 import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoadingBar from "react-top-loading-bar";
+const App = () => {
+  const pageSize = 12;
+  const apikey = process.env.REACT_APP_MY_NEWS_API_KEY;
 
-export default class App extends Component {
-  pageSize = 9;
-  render() {
-    return (
-      <div>
-        <BrowserRouter>
-          <Navbar />
-          <Routes>
-            <Route
-              path="/"
-              element={<News key="general" pageSize={this.pageSize} category="general" />}
-            />
-            <Route
-              path="/business"
-              element={<News key="business" pageSize={this.pageSize} category="business" />}
-            />
-            <Route
-              path="/entertainment"
-              element={
-                <News
-                  key="entertainment"
-                  pageSize={this.pageSize}
-                  category="entertainment"
-                />
-              }
-            />
-            <Route
-              path="/health"
-              element={<News key="health" pageSize={this.pageSize} category="health" />}
-            />
-            <Route
-              path="/science"
-              element={<News key="science" pageSize={this.pageSize} category="science" />}
-            />
-            <Route
-              path="/sports"
-              element={<News key="sports" pageSize={this.pageSize} category="sports" />}
-            />
-            <Route
-              path="/technology"
-              element={
-                <News key="technology" pageSize={this.pageSize} category="technology" />
-              }
-            />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      </div>
-    );
-  }
-}
+  const [progress, setProgress] = useState(5);
+
+  return (
+    <div>
+      <BrowserRouter>
+        <Navbar />
+        <LoadingBar height={2} color="#FF3131" progress={progress} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <News
+                apikey={apikey}
+                setProgress={setProgress}
+                key="general"
+                pageSize={pageSize}
+                category="general"
+              />
+            }
+          />
+          <Route
+            path="/business"
+            element={
+              <News
+                apikey={apikey}
+                setProgress={setProgress}
+                key="business"
+                pageSize={pageSize}
+                category="business"
+              />
+            }
+          />
+          <Route
+            path="/entertainment"
+            element={
+              <News
+                apikey={apikey}
+                setProgress={setProgress}
+                key="entertainment"
+                pageSize={pageSize}
+                category="entertainment"
+              />
+            }
+          />
+          <Route
+            path="/health"
+            element={
+              <News
+                apikey={apikey}
+                setProgress={setProgress}
+                key="health"
+                pageSize={pageSize}
+                category="health"
+              />
+            }
+          />
+          <Route
+            path="/science"
+            element={
+              <News
+                apikey={apikey}
+                setProgress={setProgress}
+                key="science"
+                pageSize={pageSize}
+                category="science"
+              />
+            }
+          />
+          <Route
+            path="/sports"
+            element={
+              <News
+                apikey={apikey}
+                setProgress={setProgress}
+                key="sports"
+                pageSize={pageSize}
+                category="sports"
+              />
+            }
+          />
+          <Route
+            path="/technology"
+            element={
+              <News
+                apikey={apikey}
+                setProgress={setProgress}
+                key="technology"
+                pageSize={pageSize}
+                category="technology"
+              />
+            }
+          />
+        </Routes>
+        <Footer />
+       
+      </BrowserRouter>
+    </div>
+  );
+};
+
+export default App;
